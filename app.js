@@ -44,8 +44,11 @@ const displayMeals = (meals) => {
         <img class="img-fluid border border-1 rounded" src="${
           meal.strMealThumb
         }" alt="meal image">
-        <h3 class="text-warning">${meal.strMeal}</h3>
-        <h4>${meal.strTags ? meal.strMeal : "Not found"}</h4>
+        <h3 class="text-warning">${
+          meal.strMeal ? meal.strMeal : "not found"
+        }</h3>
+        <h4>${meal.strCategory ? meal.strCategory : "Not found"}</h4>
+        <p class="">${meal.strInstructions.slice(0, 100)}</p>
         <button onclick="loadMealDetails('${
           meal.strMeal
         }')" class="btn btn-outline-warning mb-3">CLICK ME</button>
