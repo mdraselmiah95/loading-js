@@ -13,30 +13,40 @@ const displaySingleUser = (user) => {
 
 //Display meals
 const searchField = document.getElementById("search-field");
-const searchButton = document.getElementById("search-btn");
 const displayMeal = document.getElementById("display-meals");
 const mealDetails = document.getElementById("meal-details");
 
-const searchMeal = (searchMeals) => {
-  const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchMeals}`;
+//meal bd
+
+const searchMeal = () => {
+  const searchText = searchField.value;
+  console.log(searchText);
+  loadMeals(searchText);
+  searchField.value = "";
+};
+
+const loadMeals = (searchText) => {
+  const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => displayMeals(data.meals));
 };
 
-searchMeal("fish");
-
 const displayMeals = (meals) => {
-  //   console.log(meals);
+  displayMeal.textContent = "";
   meals.forEach((meal) => {
     console.log(meal);
 
     const div = document.createElement("div");
     div.innerHTML = `
-        <img class="img-fluid border border-1 rounded" src="${meal.strMealThumb}" alt="meal image">
+        <img class="img-fluid border border-1 rounded" src="${
+          meal.strMealThumb
+        }" alt="meal image">
         <h3 class="text-warning">${meal.strMeal}</h3>
-        <h4>${meal.strTags}</h4>
-        <button onclick="loadMealDetails('${meal.strMeal}')" class="btn btn-outline-warning mb-3">CLICK ME</button>
+        <h4>${meal.strTags ? meal.strMeal : "Not found"}</h4>
+        <button onclick="loadMealDetails('${
+          meal.strMeal
+        }')" class="btn btn-outline-warning mb-3">CLICK ME</button>
       `;
     displayMeal.appendChild(div);
   });
