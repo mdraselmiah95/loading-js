@@ -12,6 +12,8 @@ const displaySingleUser = (user) => {
 //Random users
 
 //Display meals
+const searchField = document.getElementById("search-field");
+const searchButton = document.getElementById("search-btn");
 const displayMeal = document.getElementById("display-meals");
 const mealDetails = document.getElementById("meal-details");
 
