@@ -44,7 +44,8 @@ const loadMeals = (searchText) => {
 
 const displayMeals = (meals) => {
   displayMeal.textContent = "";
-  meals.forEach((meal) => {
+  meals?.forEach((meal) => {
+    //optional chancing
     const div = document.createElement("div");
     div.innerHTML = `
         <img class="img-fluid border border-1 rounded" src="${
