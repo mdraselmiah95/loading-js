@@ -10,9 +10,16 @@ const displaySingleUser = (user) => {
 };
 
 const searchMeal = () => {
-  fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata")
+  fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=fish")
     .then((res) => res.json())
-    .then((data) => console.log(data));
+    .then((data) => displayMeal(data.meals));
 };
 
 searchMeal();
+
+const displayMeal = (meals) => {
+  //   console.log(meals);
+  meals.forEach((meal) => {
+    console.log(meal);
+  });
+};
