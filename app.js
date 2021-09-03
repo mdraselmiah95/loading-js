@@ -22,10 +22,15 @@ const spinner = document.getElementById("spinner");
 const toggleSpinner = (displayStyle) => {
   spinner.style.display = displayStyle;
 };
+const toggleSearchResult = (displayStyle) => {
+  displayMeal.style.display = displayStyle;
+};
+
 const searchMeal = () => {
   const searchText = searchField.value;
   //show spinner
   toggleSpinner("block");
+  toggleSearchResult("none");
   loadMeals(searchText);
   searchField.value = "";
 };
@@ -57,6 +62,7 @@ const displayMeals = (meals) => {
     displayMeal.appendChild(div);
   });
   toggleSpinner("none");
+  toggleSearchResult("block");
 };
 
 const loadMealDetails = (mealName) => {
