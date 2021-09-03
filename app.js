@@ -17,12 +17,19 @@ const displaySingleUser = (user) => {
 const searchField = document.getElementById("search-field");
 const displayMeal = document.getElementById("display-meals");
 const mealDetails = document.getElementById("meal-details");
+const spinner = document.getElementById("spinner");
 
 //meal bd
+const toggleSpinner = (displayStyle) => {
+  spinner.style.display = displayStyle;
+};
 
 const searchMeal = () => {
   const searchText = searchField.value;
-  console.log(searchText);
+  //   console.log(searchText);
+
+  //show spinner
+  toggleSpinner("block");
   loadMeals(searchText);
   searchField.value = "";
 };
