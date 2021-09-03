@@ -13,6 +13,7 @@ const displaySingleUser = (user) => {
 
 //Display meals
 const displayMeal = document.getElementById("display-meals");
+const mealDetails = document.getElementById("meal-details");
 
 const searchMeal = (searchMeals) => {
   const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchMeals}`;
@@ -33,8 +34,12 @@ const displayMeals = (meals) => {
         <img class="img-fluid border border-1 rounded" src="${meal.strMealThumb}" alt="meal image">
         <h3 class="text-warning">${meal.strMeal}</h3>
         <h4>${meal.strTags}</h4>
-        <button class="btn btn-outline-warning mb-3">CLICK ME</button>
+        <button onclick="loadMealDetails('${meal.strMeal}')" class="btn btn-outline-warning mb-3">CLICK ME</button>
       `;
     displayMeal.appendChild(div);
   });
+};
+
+const loadMealDetails = (mealName) => {
+  console.log(mealName);
 };
