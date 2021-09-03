@@ -45,7 +45,7 @@ const loadMeals = (searchText) => {
 const displayMeals = (meals) => {
   displayMeal.textContent = "";
   meals?.forEach((meal) => {
-    //optional chancing
+    //optional chaining
     const div = document.createElement("div");
     div.innerHTML = `
         <img class="img-fluid border border-1 rounded" src="${
@@ -69,3 +69,5 @@ const displayMeals = (meals) => {
 const loadMealDetails = (mealName) => {
   console.log(mealName);
 };
+
+//this is  a practice of spanner and optional chaining
